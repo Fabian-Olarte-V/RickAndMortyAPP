@@ -1,0 +1,55 @@
+@import '../styles'
+    
+header
+    width: 100%
+    height: 80px
+    margin-bottom: 50px
+
+    .container
+        height: 100%
+        display: flex
+        flex-flow: row nowrap
+        padding: 20px 10px 10px 20px
+
+        #icon-layout
+            flex-basis: 40%
+
+            img
+                width: 200px
+
+        #search-layout
+            flex-basis: 60%
+            @include flex-center()
+            color: white
+
+            form
+                width: 50%
+                display: flex
+                flex-flow: row nowrap
+                column-gap: 10px
+                position: relative
+
+                input
+                    flex-basis: 100%
+                    width: 50%
+                    padding: 15px
+                    border-radius: 10px
+                    border: 1px solid $details-primary-color
+                    font-size: 1.5em
+                    overflow: hidden
+                    padding-right: 50px
+                
+                button
+                    position: absolute
+                    right: 0%
+                    height: 100%
+                    width: 50px
+                    border: none
+                    background-color: transparent
+                    cursor: pointer
+                    transition: 300ms
+
+                    &:hover
+                        transform: scale(1.1)
+                        
+            

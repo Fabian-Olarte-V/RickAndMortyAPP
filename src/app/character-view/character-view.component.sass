@@ -1,0 +1,88 @@
+@import '../../styles'
+
+#character-view
+    .container
+        display: flex
+        flex-flow: row nowrap
+        border: 1px solid $details-primary-color
+        min-height: 600px
+        margin-top: 30px
+        margin-bottom: 40px
+        border-radius: 20px
+
+        #image-layout
+            flex-basis: 45%
+            flex-grow: 1
+            @include flex-center
+        
+            #image
+                width: 100%
+                border-radius: 20px
+                height: 100%
+
+        #character-info
+            flex-basis: 55%
+            flex-grow: 1
+            display: flex
+            flex-flow: column nowrap
+            justify-content: center
+            margin: 50px 40px    
+
+            .title-secundary
+                color: $font-color-third
+                font-size: 2em
+                padding-bottom: 3px
+                font-weight: 300
+            
+            #main-info
+                position: relative
+                padding-bottom: 30px
+
+                &::after
+                    content: ''
+                    position: absolute
+                    height: 1px
+                    width: 100%
+                    background-color: $details-primary-color
+                    bottom: 0%
+                    left: 0%
+
+                #optional-info-layout
+                    @include flex-center
+                    justify-content: flex-start
+                    column-gap: 80px
+                    width: 70%
+
+                    .optional-info
+                        @include flex-center   
+                        color: $font-color-secundary  
+                        font-size: 2.3em
+                        font-weight: 400     
+
+                        .icon
+                            font-size: 1.1em
+                            padding-right: 5px           
+
+
+                #title-layout
+                    #title
+                        font-size: 8em
+                        color: $font-color-primary
+                        padding-bottom: 20px
+                        font-weight: 700
+
+            #secundary-info
+                @include flex-center
+                justify-content: flex-start
+                flex-flow: row wrap
+                margin-top: 20px
+                column-gap: 50px
+                row-gap: 30px
+
+                .box-info
+                    width: auto
+                    padding: 0px 10px
+           
+                .info-secundary
+                    color: $font-color-primary
+                    font-size: 2.5em
