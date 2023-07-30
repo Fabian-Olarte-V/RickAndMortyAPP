@@ -11,5 +11,4 @@ export class ItemComponent {
   @Input()
   item: ItemInformation | undefined;
 
-
 }

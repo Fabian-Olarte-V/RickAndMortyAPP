@@ -1,22 +1,25 @@
 export interface ItemInformation {
-    id: string,
+    id: string;
     image: string;
     name: string;
-    secundaryInfo: string;
-    type: string;
+    secondaryInfo: string;
 }
 
 export interface ItemFullInformation {
-    id: number;
+    id: string;
     image: string;
     name: string;
     secondParam: string;
     thirdParam: string;
-    optionalInfo: {origin: string, location: string, gender: string} | undefined;
-    adicionalItems: ItemAditionalInformation;
+    optionalInfo: {
+        origin: string;
+        location: string;
+        gender: string;
+    } | undefined;
+    additionalItems: ItemAdditionalInformation;
 }
 
-export interface ItemAditionalInformation{
+export interface ItemAdditionalInformation {
     type: string;
     items: string[] | undefined;
 }

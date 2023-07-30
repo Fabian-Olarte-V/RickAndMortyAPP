@@ -10,13 +10,4 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'rickAndMorty';
-
-  search = new FormControl('');
-
-  constructor(private service:RickAndMortyApiService, private router: Router) {}
-
-  sendDataSearch() {
-    this.router.navigate(['characters'])
-    this.service.setData(this.search.value);
-  }
 }

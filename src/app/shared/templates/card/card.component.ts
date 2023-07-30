@@ -12,6 +12,4 @@ export class CardComponent {
   @Input()
   item: ItemInformation | undefined;
 
-
-
 }

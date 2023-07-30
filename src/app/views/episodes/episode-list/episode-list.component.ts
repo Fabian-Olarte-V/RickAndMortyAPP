@@ -1,49 +1,33 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { EpisodeInformation } from 'src/app/model/episode/episode';
 import { ItemInformation } from 'src/app/model/interface/item-information';
 import { RickAndMortyApiService } from 'src/app/services/rick-and-morty-api.service';
+import { loadEpisodes } from 'src/app/state/actions/items.actions';
+import { AppState } from 'src/app/state/app.state';
+import { selectEpisodeList } from 'src/app/state/selectors/items.selectors';
 
 @Component({
   selector: 'app-episode-list',
   templateUrl: './episode-list.component.html',
   styleUrls: ['./episode-list.component.sass']
 })
-export class EpisodeListComponent implements OnInit{
+export class EpisodeListComponent implements OnInit {
 
   episodes: ItemInformation[] | undefined;
   pageNumber: number = 1;
   maxPageNumber: number | undefined;
 
-  constructor(private service: RickAndMortyApiService) {}
+  constructor(private service: RickAndMortyApiService, private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.pageNumber = 1;
+    this.store.dispatch(loadEpisodes());
 
-    //Llamado al api para obtener todos los personajes
-    this.service.getEpisodeList(this.pageNumber).subscribe(episodes => {
-      this.maxPageNumber = episodes.info.pages 
-      this.episodes = episodes.results.map((item: { id:number, image:string, name: string, episode: string }) => ({id: item.id, image: "assets/icons/icon_episode.png", name: item.name, secundaryInfo: item.episode}));
-    })
-  }
-
-  
-  nextPage(): void {
-    this.pageNumber++;
-
-    if(this.pageNumber > this.maxPageNumber!) this.pageNumber = this.maxPageNumber!;
-    
-    this.service.getCharachterList(this.pageNumber).subscribe(episodes => {
-      this.episodes = episodes.results;
-    })
-  }
-
-
-  lastPage(): void {
-    this.pageNumber--;
-
-    if(this.pageNumber < 1) this.pageNumber = 1;
-    
-    this.service.getCharachterList(this.pageNumber).subscribe(episodes => {
-      this.episodes = episodes.results;
-    })
+    this.store.select(selectEpisodeList).subscribe((episodes: EpisodeInformation[]) => {
+      this.episodes = episodes.map((item: EpisodeInformation) => (
+        {id: item.id, image: "assets/icons/icon_episode.png", name: item.name, secondaryInfo: item.episode}
+      ))
+    });
   }
 }

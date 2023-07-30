@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ItemAditionalInformation, ItemFullInformation } from 'src/app/model/interface/item-information';
+import { ItemAdditionalInformation, ItemFullInformation } from 'src/app/model/interface/item-information';
 import { LocationInformation } from 'src/app/model/location/location';
 import { RickAndMortyApiService } from 'src/app/services/rick-and-morty-api.service';
 
@@ -29,7 +29,7 @@ export class LocationViewComponent implements OnInit{
       return id
     })
 
-    let characterList: ItemAditionalInformation = {type: "character", items: characters}; 
-    this.locationInformation = {id: location.id, name: location.name, image: "https://doitbeforeme.com/wp-content/uploads/2023/01/lockscreen-rick-and-morty-wallpaper.webp", secondParam: location.type , thirdParam: location.dimension, optionalInfo: undefined, adicionalItems: characterList}  
+    let characterList: ItemAdditionalInformation = {type: "character", items: characters}; 
+    this.locationInformation = {id: location.id, name: location.name, image: "https://doitbeforeme.com/wp-content/uploads/2023/01/lockscreen-rick-and-morty-wallpaper.webp", secondParam: location.type , thirdParam: location.dimension, optionalInfo: undefined, additionalItems: characterList}  
   }
 }

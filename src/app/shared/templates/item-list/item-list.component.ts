@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ItemAditionalInformation, ItemInformation } from 'src/app/model/interface/item-information';
+import { ItemAdditionalInformation, ItemInformation } from 'src/app/model/interface/item-information';
 import { RickAndMortyApiService } from 'src/app/services/rick-and-morty-api.service';
 
 @Component({
@@ -10,19 +10,19 @@ import { RickAndMortyApiService } from 'src/app/services/rick-and-morty-api.serv
 export class ItemListComponent {
 
   itemList: ItemInformation[] | undefined;
-  private _items: ItemAditionalInformation  | undefined;
+  private _items: ItemAdditionalInformation  | undefined;
   
   constructor(private service: RickAndMortyApiService) { }
 
   @Input()
-  set items(value: ItemAditionalInformation | undefined) {
+  set items(value: ItemAdditionalInformation | undefined) {
     this._items = value;
     if (value !== undefined) {
       this.populateListItems(); 
     }
   }
 
-  get items(): ItemAditionalInformation | undefined {
+  get items(): ItemAdditionalInformation | undefined {
     return this._items;
   }
 
@@ -40,7 +40,7 @@ export class ItemListComponent {
   }
 
   getCharacters(ids: string): void {
-    this.service.getCharachterById(ids).subscribe(characters => {
+    this.service.getCharacterById(ids).subscribe(characters => {
       if(!Array.isArray(characters)){
         characters = [characters]
       }

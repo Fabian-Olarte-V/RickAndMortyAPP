@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { characterInformation } from 'src/app/model/character/character';
 import { EpisodeInformation } from 'src/app/model/episode/episode';
-import { ItemAditionalInformation, ItemFullInformation } from 'src/app/model/interface/item-information';
+import { ItemAdditionalInformation, ItemFullInformation } from 'src/app/model/interface/item-information';
 import { RickAndMortyApiService } from 'src/app/services/rick-and-morty-api.service';
 
 @Component({
@@ -30,7 +29,7 @@ export class EpisodeViewComponent implements OnInit{
       return id
     })
 
-    let characterList: ItemAditionalInformation = {type: "character", items: characters}; 
-    this.episodeInformation = {id: episode.id, name: episode.name, image: "https://wallpapers.com/images/featured/rick-and-morty-8rc57d4ds44gqzau.jpg", secondParam: episode.episode, thirdParam: episode.air_date, optionalInfo: undefined, adicionalItems: characterList}  
+    let characterList: ItemAdditionalInformation = {type: "character", items: characters}; 
+    this.episodeInformation = {id: episode.id, name: episode.name, image: "https://wallpapers.com/images/featured/rick-and-morty-8rc57d4ds44gqzau.jpg", secondParam: episode.episode, thirdParam: episode.air_date, optionalInfo: undefined, additionalItems: characterList}  
   }
 }

@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { ItemInformation } from 'src/app/model/interface/item-information';
+import { LocationInformation } from 'src/app/model/location/location';
 import { RickAndMortyApiService } from 'src/app/services/rick-and-morty-api.service';
+import { loadLocations } from 'src/app/state/actions/items.actions';
+import { AppState } from 'src/app/state/app.state';
+import { selectLocationList } from 'src/app/state/selectors/items.selectors';
 
 @Component({
   selector: 'app-location-list',
@@ -9,40 +14,17 @@ import { RickAndMortyApiService } from 'src/app/services/rick-and-morty-api.serv
 })
 export class LocationListComponent implements OnInit{
 
-  episodes: ItemInformation[] | undefined;
+  locations: ItemInformation[] | undefined;
   pageNumber: number = 1;
   maxPageNumber: number | undefined;
 
-  constructor(private service: RickAndMortyApiService) {}
+  constructor(private service: RickAndMortyApiService, private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.pageNumber = 1;
-
-    //Llamado al api para obtener todos los personajes
-    this.service.getLocationList(this.pageNumber).subscribe(episodes => {
-      this.maxPageNumber = episodes.info.pages 
-      this.episodes = episodes.results.map((item: { id:number, image:string, name: string, type: string }) => ({id:item.id, image: "assets/icons/icon_location.png", name: item.name, secundaryInfo: item.type}));
-    })
-  }
-
-  nextPage(): void {
-    this.pageNumber++;
-
-    if(this.pageNumber > this.maxPageNumber!) this.pageNumber = this.maxPageNumber!;
-    
-    this.service.getCharachterList(this.pageNumber).subscribe(episodes => {
-      this.episodes = episodes.results;
-    })
-  }
-
-  lastPage(): void {
-    this.pageNumber--;
-
-    if(this.pageNumber < 1) this.pageNumber = 1;
-    
-    this.service.getCharachterList(this.pageNumber).subscribe(episodes => {
-      this.episodes = episodes.results;
-    })
+    this.store.dispatch(loadLocations());
+    this.store.select(selectLocationList).subscribe((locations: LocationInformation[]) => {
+      this.locations = locations.map((item: LocationInformation) => ({id: item.id,image: "assets/icons/icon_location.png",name: item.name, secondaryInfo: item.type}));
+    });
   }
 }
 
