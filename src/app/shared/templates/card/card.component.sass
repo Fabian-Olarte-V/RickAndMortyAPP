@@ -1,0 +1,63 @@
+@import '../../../../styles'
+
+.item-card
+    display: flex
+    flex-flow: column nowrap
+    max-width: 350px
+    min-width: 280px
+    height: 550px
+    overflow: hidden
+
+    .image-layout
+        @include flex-center()
+        flex-basis: 80%
+        width: 100%
+        height: 100%
+
+        .image
+            width: 96%
+            height: 100%
+            border-radius: 5px 5px 0px 0px
+
+    .item-info-layout
+        @include flex-center()
+        flex-basis: 20%
+        flex-flow: column
+        row-gap: 15px
+        padding: 15px 5px
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+        background-color: #fbfbfb
+        border: 1px solid $border-color
+
+        .info-layout
+            .item-name
+                font-size: 2.3em
+                font-weight: bolder
+
+            .item-info
+                text-align: center
+                font-size: 1.7em
+                padding-top: 5px
+                font-weight: 400
+                color: $font-color-secundary
+
+        .buttons-layout
+            .button
+                @include flex-center()
+                border-radius: 40px
+                padding: 10px 50px
+                cursor: pointer
+                border: none
+                transition: 300ms  
+                text-decoration: none
+
+            .details
+                background-color: #000
+                color: white
+                font-size: 1.5em
+                font-weight: 400
+
+                &:hover
+                    background-color: #4b4b4b

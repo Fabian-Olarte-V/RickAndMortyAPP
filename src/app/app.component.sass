@@ -1,5 +1,5 @@
 @import '../styles'
-    
+
 header
     width: 100%
     height: 80px
@@ -9,21 +9,69 @@ header
         height: 100%
         display: flex
         flex-flow: row nowrap
+        justify-content: space-between
+        column-gap: 20px
         padding: 20px 10px 10px 20px
 
         #icon-layout
-            flex-basis: 40%
+            flex-basis: 20%
 
             img
                 width: 200px
 
-        #search-layout
-            flex-basis: 60%
+        #menu-layout
             @include flex-center()
-            color: white
+            flex-basis: 50%
+            justify-content: flex-start
+
+            #menu-home
+                justify-self: start
+                flex-flow: row nowrap
+
+                ul
+                    @include flex-center()
+                    list-style: none
+                    height: 100%
+                    column-gap: 10px
+
+                    li
+                        min-width: 170px
+                        @include flex-center()
+                        
+                        .item-menu
+                            @include flex-center
+                            justify-content: flex-start
+                            color: $font-color-secundary
+                            font-size: 1.9em
+                            padding: 15px 20px
+                            text-decoration: none
+                            position: relative
+                            margin: 0px 10px
+                            transition: color 300ms
+                            font-weight: 300
+
+                            &::after
+                                content: ''
+                                width: 0%
+                                height: 2px
+                                background-color: $primary-color
+                                position: absolute
+                                bottom: 0
+                                left: 0
+                                transition: width 300ms
+
+                            &:hover::after
+                                width: 100%
+
+                            &:hover
+                                color: $font-color-primary
+
+        #search-layout
+            flex-basis: 40%
+            @include flex-center()
 
             form
-                width: 50%
+                width: 80%
                 display: flex
                 flex-flow: row nowrap
                 column-gap: 10px
@@ -38,7 +86,7 @@ header
                     font-size: 1.5em
                     overflow: hidden
                     padding-right: 50px
-                
+
                 button
                     position: absolute
                     right: 0%
@@ -51,5 +99,3 @@ header
 
                     &:hover
                         transform: scale(1.1)
-                        
-            

@@ -1,0 +1,5 @@
+<div id="items-container" *ngIf="itemList">
+    <div id="item" *ngFor="let item of itemList">
+        <app-item [item]="item"></app-item>
+    </div>
+</div>

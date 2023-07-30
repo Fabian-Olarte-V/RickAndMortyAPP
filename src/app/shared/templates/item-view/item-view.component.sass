@@ -1,4 +1,4 @@
-@import '../../styles'
+@import '../../../../styles'
 
 #character-view
     .container
@@ -11,7 +11,8 @@
         border-radius: 20px
 
         #image-layout
-            flex-basis: 45%
+            flex-basis: 25%
+            height: 650px
             flex-grow: 1
             @include flex-center
         
@@ -70,6 +71,14 @@
                         color: $font-color-primary
                         padding-bottom: 20px
                         font-weight: 700
+
+            #item-list-layout
+                margin-top: 10px
+                border: 1px solid #ccc
+                max-height: 300px
+                overflow-y: scroll
+                padding: 20px
+                border-radius: 20px
 
             #secundary-info
                 @include flex-center

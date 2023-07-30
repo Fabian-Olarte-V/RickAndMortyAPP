@@ -1,0 +1,41 @@
+<section id="character-view">
+    <ng-container *ngIf="item">
+        <div class="container wrap">
+            <div id="image-layout">
+                <img id="image" [src]="item.image" alt="Image Character">
+            </div>
+
+            <div id="character-info">
+                <div id="main-info">
+                    <div id="optional-info-layout">
+                        <p class="optional-info">{{item.secondParam}}</p>
+                        <p class="optional-info">{{item.thirdParam}}</p>
+                    </div>
+
+                    <div id="title-layout">
+                        <h1 id="title">{{item.name}}</h1>
+                    </div>
+                </div>
+
+                <div id="item-list-layout" *ngIf="item.adicionalItems.items!.length != 0">
+                    <app-item-list [items]="item.adicionalItems"></app-item-list>
+                </div>
+
+                <div id="secundary-info" *ngIf="item.optionalInfo">
+                    <div class="box-info">
+                        <p class="title-secundary">Genero</p>
+                        <p class="info-secundary">{{item.optionalInfo.gender}}</p>
+                    </div>
+                    <div class="box-info">
+                        <p class="title-secundary">Origen</p>
+                        <p class="info-secundary">{{item.optionalInfo.origin}}</p>
+                    </div>
+                    <div class="box-info">
+                        <p class="title-secundary">Ubicación</p>
+                        <p class="info-secundary">{{item.optionalInfo.location}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</section>

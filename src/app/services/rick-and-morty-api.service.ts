@@ -16,17 +16,38 @@ export class RickAndMortyApiService {
     this.dataSubject.next(dataSearch);
   }
 
-  baseUrl:string = "https://rickandmortyapi.com/api/"
+  baseUrl: string = "https://rickandmortyapi.com/api/"
 
-  getCharachterList(pageNumber: number): Observable<any>{
+  getCharachterList(pageNumber: number): Observable<any> {
     return this.httpClient.get<any>(this.baseUrl + "character/?page=" + pageNumber);
   }
 
-  getCharachterById(id:string): Observable<any>{
+  getEpisodeList(pageNumber: number): Observable<any> {
+    return this.httpClient.get<any>(this.baseUrl + "/episode?page=" + pageNumber);
+  }
+
+  getLocationList(pageNumber: number): Observable<any> {
+    return this.httpClient.get<any>(this.baseUrl + "/location?page=" + pageNumber);
+  }
+
+  getCharachterById(id: string): Observable<any> {
     return this.httpClient.get<any>(this.baseUrl + "character/" + id);
   }
 
-  getCharachtersByName(name:string): Observable<any>{
+  getEpisodeById(id: string): Observable<any> {
+    return this.httpClient.get<any>(this.baseUrl + "episode/" + id);
+  }
+
+  getLocationById(id: string): Observable<any> {
+    return this.httpClient.get<any>(this.baseUrl + "location/" + id);
+  }
+
+
+
+
+
+
+  getCharachtersByName(name: string): Observable<any> {
     return this.httpClient.get<any>(this.baseUrl + "character/?name=" + name);
   }
 }

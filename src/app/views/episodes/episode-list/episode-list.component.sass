@@ -1,0 +1,31 @@
+@import '../../../../styles'
+
+#episodes-section
+    .wrap
+        .container
+            #episodes-list
+                display: flex
+                flex-flow: row wrap
+                gap: 20px
+                justify-content: space-around
+
+        #page-layout
+            @include flex-center() 
+            margin: 100px 0px 50px 0px
+            column-gap: 50px
+
+            button
+                padding: 5px
+                border: none
+                background-color: transparent
+                cursor: pointer
+                transition: 300ms
+                
+                &:hover
+                    transform: scale(1.1)
+
+                p
+                    @include flex-center() 
+                    font-size: 2em
+                    color: $font-color-secundary
+                    padding: 0px 10px
