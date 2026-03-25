@@ -22,7 +22,7 @@ export class CharactersListComponent implements OnInit {
     this.store.dispatch(loadCharacters());
     this.store.select(selectCharacterList).subscribe((characters: CharacterInformation[]) => {
         this.characters = characters.map((item: { id: string, image: string, name: string, status: string }) =>
-          ({ id: item.id, image: item.image, name: item.name, secondaryInfo: item.status }));
+          ({ id: item.id, image: item.image, name: item.name, secondaryInfo: item.status, detailType: 'character' }));
       });
   }
 }

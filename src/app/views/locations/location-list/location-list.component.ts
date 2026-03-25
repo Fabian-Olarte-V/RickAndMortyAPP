@@ -23,7 +23,7 @@ export class LocationListComponent implements OnInit{
   ngOnInit(): void {
     this.store.dispatch(loadLocations());
     this.store.select(selectLocationList).subscribe((locations: LocationInformation[]) => {
-      this.locations = locations.map((item: LocationInformation) => ({id: item.id,image: "assets/icons/icon_location.png",name: item.name, secondaryInfo: item.type}));
+      this.locations = locations.map((item: LocationInformation) => ({id: item.id,image: "assets/icons/icon_location.png",name: item.name, secondaryInfo: item.type, detailType: 'location'}));
     });
   }
 }

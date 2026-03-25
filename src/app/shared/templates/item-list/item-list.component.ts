@@ -28,7 +28,6 @@ export class ItemListComponent {
 
   populateListItems(): void {
     const ids: string = this._items!.items!.join(',');
-    console.log(this.items?.items)
 
     if(this.items?.type == "character"){
       this.getCharacters(ids);
@@ -44,7 +43,7 @@ export class ItemListComponent {
       if(!Array.isArray(characters)){
         characters = [characters]
       }
-      this.itemList = characters.map((item: { id: number, image:string, name: string, status: string }) => ({id: item.id, image: item.image, name: item.name, secundaryInfo: item.status}));
+      this.itemList = characters.map((item: { id: number, image:string, name: string, status: string }) => ({id: item.id, image: item.image, name: item.name, secondaryInfo: item.status, detailType: 'character'}));
     })
   }
 
@@ -53,7 +52,7 @@ export class ItemListComponent {
       if(!Array.isArray(episodes)){
         episodes = [episodes]
       }
-      this.itemList = episodes.map((item: { id:number, image:string, name: string, episode: string }) => ({id: item.id, image: "assets/icons/icon_episode.png", name: item.name, secundaryInfo: item.episode}));
+      this.itemList = episodes.map((item: { id:number, image:string, name: string, episode: string }) => ({id: item.id, image: "assets/icons/icon_episode.png", name: item.name, secondaryInfo: item.episode, detailType: 'episode'}));
     })
   }
 }

@@ -3,6 +3,7 @@ export interface ItemInformation {
     image: string;
     name: string;
     secondaryInfo: string;
+    detailType: 'character' | 'episode' | 'location';
 }
 
 export interface ItemFullInformation {

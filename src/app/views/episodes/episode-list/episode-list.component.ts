@@ -26,7 +26,7 @@ export class EpisodeListComponent implements OnInit {
 
     this.store.select(selectEpisodeList).subscribe((episodes: EpisodeInformation[]) => {
       this.episodes = episodes.map((item: EpisodeInformation) => (
-        {id: item.id, image: "assets/icons/icon_episode.png", name: item.name, secondaryInfo: item.episode}
+        {id: item.id, image: "assets/icons/icon_episode.png", name: item.name, secondaryInfo: item.episode, detailType: 'episode'}
       ))
     });
   }
