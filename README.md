@@ -1,27 +1,39 @@
-# RickAndMorty
+# Rick And Morty App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
+Web application built as a technical test using Angular and the Rick and Morty API.
 
-## Development server
+This project is focused on reusable component design and component communication to display and navigate through characters, episodes, and locations.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## What was implemented
 
-## Code scaffolding
+- Reusable component-based structure.
+- List and detail views for characters, episodes, and locations.
+- Component communication using `@Input`.
+- Navigation between views with `Angular Router`.
+- State management with `NgRx`.
+- Data consumption from the Rick and Morty API.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## How to run the project
 
-## Build
+1. Clone or download this repository.
+2. Install dependencies:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm install
+```
 
-## Running unit tests
+3. Start the application:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+npm start
+```
 
-## Running end-to-end tests
+4. Open the app in your browser:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```text
+http://localhost:4200/
+```
 
-## Further help
+## Notes
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This project does not require any additional external services, special configuration, or containers to run.
